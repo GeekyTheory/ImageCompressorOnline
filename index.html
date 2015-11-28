@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Image Compressor Online</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!-- CSS reset -->
+    <link rel="stylesheet" href="assets/image-comparator-slider/css/reset.css">
+    <!-- Resource style -->
+    <link rel="stylesheet" href="assets/image-comparator-slider/css/style.css">
+    <!-- Bootstrap slider -->
+    <!--<link rel="stylesheet" href="assets/slider/css/slider.css">-->
+    <link rel="stylesheet" href="assets/jquery/css/jquery.range.css">
+    <!-- Custom CSS -->
+    <link href="assets/app/css/custom.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+    <div class="container">
+        <figure class="cd-image-container">
+                <img id="originalImage" src="img/uploadyourimage.png" alt="Original Image">
+                <span class="cd-image-label" data-type="original">Original</span>
+            <div class="compressed-image-container hidden">
+                <!-- the resizable image on top -->
+                <div class="cd-resize-img">
+                    <img id="compressedImage" src="img/uploadyourimage.png" alt="Modified Image">
+                    <span class="cd-image-label" data-type="modified">Compressed</span>
+                </div>
+                <span class="cd-handle"></span>
+            </div>
+        </figure>
+        <!-- cd-image-container -->
+        <div class="cd-image-container compression-controls">
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <input type="hidden" class="slider-input" value="50" />
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <button id="btn-compress" class="btn btn-default btn-block" disabled>
+                        Compress
+                        <div class="pull-right btn-icon">
+                            <i class="fa fa-compress"></i>
+                        </div>
+                    </button>
+                </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                <a id="btn-download" href="#" class="btn btn-default btn-success btn-block disabled">
+                    Download
+                    <div class="pull-right btn-icon">
+                        <i class="fa fa-download"></i>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                <span class="btn btn-default btn-info btn-file">
+                    Browse
+                    <input type="file">
+                    <div class="pull-right btn-icon">
+                        <i class="fa fa-upload"></i>
+                    </div>
+                </span>
+            </div>
+        </div>
+    </div>
+    <!-- jQuery -->
+    <script src="assets/jquery/js/jquery.js"></script>
+    <!-- Modernizr -->
+    <script src="assets/image-comparator-slider/js/modernizr.js"></script>
+    <!-- Comparison slider js-->
+    <script src="assets/image-comparator-slider/js/main.js"></script>
+    <!-- jQuery Range -->
+    <script src="assets/jquery/js/jquery.range-min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Javascript Image Compressor -->
+    <script src="assets/jic/jic.min.js"></script>
+    <!-- Custom app JavaScript -->
+    <script src="assets/app/js/app.js"></script>
+</body>
+
+</html>

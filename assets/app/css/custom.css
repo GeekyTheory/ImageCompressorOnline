@@ -1,0 +1,46 @@
+/*
+  Custom CSS
+*/
+
+body {
+    font-size: 100%;
+    font-family: "Ubuntu", sans-serif;
+    background-color: #f0f0f0;
+    padding-top: 100px;
+}
+
+.compression-controls {
+    padding-top: 25px;
+}
+
+div.compression-controls > div {
+    margin-top: 10px;
+}
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+
+@media(max-width: 350px) {
+    .btn-icon {
+        display: none;
+    }
+}
