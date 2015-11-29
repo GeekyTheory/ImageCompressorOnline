@@ -17,6 +17,14 @@ div.compression-controls > div {
     margin-top: 10px;
 }
 
+.btn {
+    white-space: normal;
+}
+
+.btn-icon-right {
+    float: right !important;
+}
+
 .btn-file {
     position: relative;
     overflow: hidden;
