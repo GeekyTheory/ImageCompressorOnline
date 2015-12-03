@@ -1,47 +1,64 @@
-$(function() {
 
-    var outputFormat = "jpg",
-        fileName = "compressed";
-
-    var s = $('.slider-input').jRange({
-        from: 1,
-        to: 100,
-        step: 1,
-        scale: [],
-        format: '%s',
-        width: 'auto',
-        showLabels: true,
-        theme: "theme-blue"
-    });
-
-    $(":file").change(function() {
-        if (this.files && this.files[0]) {
+var CompressorView = Backbone.View.extend({
+    outputFormat: "jpg",
+    fileName: "compressed",
+    initialize: function() {
+        this.slider = this.getSlider();
+        this.render();
+    },
+    render: function() {
+        return this;
+    },
+    events: {
+        "change #fileUploader": "uploadOriginalFile",
+        "click #btn-compress": "compressImage"
+    },
+    getSlider: function() {
+        return $('.slider-input').jRange({
+            from: 1,
+            to: 100,
+            step: 1,
+            scale: [],
+            format: '%s',
+            width: 'auto',
+            showLabels: true,
+            theme: "theme-blue"
+        });
+    },
+    uploadOriginalFile: function(e) {
+        var fileUploader = $(e.target),
+            file;
+        if (fileUploader[0].files && fileUploader[0].files[0]) {
+            file = fileUploader[0].files[0];
             var reader = new FileReader();
-            reader.onload = imageIsLoaded;
-            reader.readAsDataURL(this.files[0]);
-            if (this.files[0].type == "image/png") {
-                outputFormat = "png";
+            reader.onload = this.imageIsLoaded;
+            reader.readAsDataURL(file);
+            if (file.type == "image/png") {
+                this.outputFormat = "png";
             }
-            fileName = this.files[0].name.substring(0, this.files[0].name.length - outputFormat.length);
-            $("#btn-compress").prop("disabled", false);
-            $("#btn-download").addClass("disabled");
+            this.fileName = file.name.substring(0, file.name.length - this.outputFormat.length - 1);
+            this.$(".compressed-image-container").addClass("hidden");
+            this.$("#btn-compress").prop("disabled", false);
+            this.$("#btn-download").addClass("disabled");
         }
-    });
-
-    $("#btn-compress").click(function() {
-        var compressedImage = $("#compressedImage"),
-            buttonDownload = $("#btn-download"),
-            quality = $('.slider-input').val();
-        var compressed = jic.compress(document.getElementById("originalImage"), quality, outputFormat);
-        compressedImage.attr("src", compressed.src);
+    },
+    compressImage: function (e) {
+        var buttonDownload = this.$("#btn-download"),
+            quality = this.slider.val();
+        var compressed = jic.compress(document.getElementById("originalImage"), quality, this.outputFormat);
+        this.$("#compressedImage").attr("src", compressed.src);
         buttonDownload.attr("href", compressed.src);
-        buttonDownload.attr("download", fileName + "-compressed." + outputFormat);
-        $(".compressed-image-container").removeClass("hidden");
-        $("#btn-download").removeClass("disabled");
-    });
-
+        buttonDownload.attr("download", this.fileName + "-compressed." + this.outputFormat);
+        this.$(".compressed-image-container").removeClass("hidden");
+        buttonDownload.removeClass("disabled");
+    },
+    imageIsLoaded: function(e) {
+        $('#originalImage').attr('src', e.target.result);
+    }
 });
 
-function imageIsLoaded(e) {
-    $('#originalImage').attr('src', e.target.result);
-}
+$(document).ready(function() {
+    var compressorView = new CompressorView({
+        el: '#compressor-image-container'
+    });
+});

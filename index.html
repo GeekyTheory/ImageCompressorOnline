@@ -20,7 +20,6 @@
     <!-- Resource style -->
     <link rel="stylesheet" href="assets/image-comparator-slider/css/style.css">
     <!-- Bootstrap slider -->
-    <!--<link rel="stylesheet" href="assets/slider/css/slider.css">-->
     <link rel="stylesheet" href="assets/jquery/css/jquery.range.css">
     <!-- Custom CSS -->
     <link href="assets/app/css/custom.css" rel="stylesheet" type="text/css">
@@ -35,12 +34,11 @@
 </head>
 
 <body>
-    <div class="container">
+    <div id="compressor-image-container" class="container">
         <figure class="cd-image-container">
                 <img id="originalImage" src="img/uploadyourimage.png" alt="Original Image">
                 <span class="cd-image-label" data-type="original">Original</span>
             <div class="compressed-image-container hidden">
-                <!-- the resizable image on top -->
                 <div class="cd-resize-img">
                     <img id="compressedImage" src="img/uploadyourimage.png" alt="Modified Image">
                     <span class="cd-image-label" data-type="modified">Compressed</span>
@@ -48,7 +46,6 @@
                 <span class="cd-handle"></span>
             </div>
         </figure>
-        <!-- cd-image-container -->
         <div class="cd-image-container compression-controls">
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                     <input type="hidden" class="slider-input" value="50" />
@@ -72,7 +69,7 @@
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
                 <span class="btn btn-default btn-info btn-file">
                     Browse
-                    <input type="file">
+                    <input id="fileUploader" type="file">
                     <div class="btn-icon-right">
                         <i class="fa fa-upload"></i>
                     </div>
@@ -82,8 +79,10 @@
     </div>
     <!-- jQuery -->
     <script src="assets/jquery/js/jquery.js"></script>
-    <!-- Modernizr -->
-    <script src="assets/image-comparator-slider/js/modernizr.js"></script>
+    <!-- Underscore -->
+    <script src="assets/underscore/underscore-min.js"></script>
+    <!-- Backbone -->
+    <script src="assets/backbone/backbone-min.js"></script>
     <!-- Comparison slider js-->
     <script src="assets/image-comparator-slider/js/main.js"></script>
     <!-- jQuery Range -->
@@ -94,6 +93,8 @@
     <script src="assets/jic/jic.min.js"></script>
     <!-- Custom app JavaScript -->
     <script src="assets/app/js/app.js"></script>
+    <!-- Modernizr -->
+    <script src="assets/image-comparator-slider/js/modernizr.js"></script>
 </body>
 
 </html>
