@@ -2,6 +2,8 @@
 
 This is a Javascript-based online image compressor. No server-side required!
 
+Check the working demo [here](http://goo.gl/6OUJt3)!
+
 ![screenshot](https://raw.githubusercontent.com/GeekyTheory/ImageCompressorOnline/master/art/screenshot.png)
 
 # Libraries
